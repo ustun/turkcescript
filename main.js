@@ -73,7 +73,7 @@ tekrarla (değişken t = 0; t < 10; t++) {
 
 
 değişken kupler = [1, 2, 3].dönüştür(fonksiyon (x) {
-    return x * x * x;
+    döndür x * x * x;
 
 });
 
