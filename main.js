@@ -63,7 +63,7 @@ eğer (x === 3) {
 `
 var Main = React.createClass({
     getInitialState() {
-        return {transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: false};
+        return {transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: true};
     },
 
     onChange(newValue) {
@@ -73,7 +73,9 @@ var Main = React.createClass({
             transformed: transform(newValue)}, function () {
 
                 if (this.state.autorun) {
-                    this.run();
+                    window.setTimeout(function () {
+                        this.run();
+                    }.bind(this), 10);
                 }
 
             }.bind(this));
@@ -110,7 +112,7 @@ var Main = React.createClass({
             <h1>TürkçeScript<div id='github'><a href='github.com/ustun/turkcescript'>Github deposu</a></div></h1>
 
             <label>JavaScript dönüşümünü göster<input type="checkbox" checked={this.state.showJS} onClick={this.toggleJS}/></label>
- {/*           <label>Otomatik çalıştır<input type="checkbox" checked={this.state.autorun} onClick={this.toggleAutorun}/></label>*/}
+            <label>Otomatik çalıştır<input type="checkbox" checked={this.state.autorun} onClick={this.toggleAutorun}/></label>
             <button onClick={this.run} className='calistir'>Çalıştır</button>
             <AceEditor
              mode="javascript"
