@@ -2,7 +2,11 @@ const modifications = [
     {source: /e\u011Fer/g, target: 'if'},
     {source: /de\u011Filse/g, target: 'else'},
     {source: /\bde\u011Fi\u015Fken\b/g, target: 'var'},
-    {source: /\btekrarla\b/g, target: 'for'}
+    {source: /\btekrarla\b/g, target: 'for'},
+    {source: /\bfonksiyon\b/g, target: 'function'},
+    {source: /\bdönü\u015Ftür\b/g, target: 'donustur'},
+
+
 ];
 
 const transform = function (text) {
@@ -13,6 +17,13 @@ const transform = function (text) {
 
     return text;
 };
+
+Array.prototype.donustur = Array.prototype.map;
+Array.prototype.filtrele = Array.prototype.filter;
+Array.prototype.indirge = Array.prototype.reduce;
+Array.prototype.herbiriIcin = Array.prototype.forEach;
+
+
 
 
 module.exports = transform;

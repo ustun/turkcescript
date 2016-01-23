@@ -111,7 +111,7 @@
 
 	__webpack_require__(167);
 
-	var INITIAL_VALUE = '\n\ndeğişken x = 2;\n\nx = x + 1;\n\neğer (x === 3) {\n   yazdir("x üçtür");\n} değilse {\n   yazdir("x üç değildir");\n\n}\n\n\ntekrarla (değişken t = 0; t < 10; t++) {\n   yazdir(t + "nin karesi " + t * t + "dir");\n}\n';
+	var INITIAL_VALUE = '\n\ndeğişken x = 2;\n\nx = x + 1;\n\neğer (x === 3) {\n   yazdir("x üçtür");\n} değilse {\n   yazdir("x üç değildir");\n\n}\n\n\ntekrarla (değişken t = 0; t < 10; t++) {\n   yazdir(t + "nin karesi " + t * t + "dir");\n}\n\n\n[1, 2, 3].herbiriIcin(fonksiyon (x) {\n    yazdir(x * x * x);\n\n});\n\n\ndeğişken kupler = [1, 2, 3].dönüştür(fonksiyon (x) {\n    return x * x * x;\n\n});\n\nyazdir("küpler", kupler);\n\n\nfonksiyon tek(x) {\n    return x % 2 == 1;\n}\ndeğişken tekler = [1, 2, 3, 4, 5].filtrele(tek);\n\nyazdir("tekler", tekler);\n\n';
 	var Main = _react2.default.createClass({
 	    displayName: 'Main',
 	    getInitialState: function getInitialState() {
@@ -40230,7 +40230,7 @@
 
 	'use strict';
 
-	var modifications = [{ source: /e\u011Fer/g, target: 'if' }, { source: /de\u011Filse/g, target: 'else' }, { source: /\bde\u011Fi\u015Fken\b/g, target: 'var' }, { source: /\btekrarla\b/g, target: 'for' }];
+	var modifications = [{ source: /e\u011Fer/g, target: 'if' }, { source: /de\u011Filse/g, target: 'else' }, { source: /\bde\u011Fi\u015Fken\b/g, target: 'var' }, { source: /\btekrarla\b/g, target: 'for' }, { source: /\bfonksiyon\b/g, target: 'function' }, { source: /\bdönü\u015Ftür\b/g, target: 'donustur' }];
 
 	var transform = function transform(text) {
 
@@ -40240,6 +40240,11 @@
 
 	    return text;
 	};
+
+	Array.prototype.donustur = Array.prototype.map;
+	Array.prototype.filtrele = Array.prototype.filter;
+	Array.prototype.indirge = Array.prototype.reduce;
+	Array.prototype.herbiriIcin = Array.prototype.forEach;
 
 	module.exports = transform;
 

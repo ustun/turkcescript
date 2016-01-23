@@ -64,6 +64,29 @@ eğer (x === 3) {
 tekrarla (değişken t = 0; t < 10; t++) {
    yazdir(t + "nin karesi " + t * t + "dir");
 }
+
+
+[1, 2, 3].herbiriIcin(fonksiyon (x) {
+    yazdir(x * x * x);
+
+});
+
+
+değişken kupler = [1, 2, 3].dönüştür(fonksiyon (x) {
+    return x * x * x;
+
+});
+
+yazdir("küpler", kupler);
+
+
+fonksiyon tek(x) {
+    return x % 2 == 1;
+}
+değişken tekler = [1, 2, 3, 4, 5].filtrele(tek);
+
+yazdir("tekler", tekler);
+
 `
 var Main = React.createClass({
     getInitialState() {
