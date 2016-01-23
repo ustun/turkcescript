@@ -5,7 +5,9 @@ const modifications = [
     {source: /\btekrarla\b/g, target: 'for'},
     {source: /\bfonksiyon\b/g, target: 'function'},
     {source: /\bdönü\u015Ftür\b/g, target: 'donustur'},
-    {source: /\bdöndür\b/g, target: 'return'}
+    {source: /\bdöndür\b/g, target: 'return'},
+    {source: /\bherbiriIcin\b/g, target: 'forEach'}
+
 
 
 ];

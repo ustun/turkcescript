@@ -38,3 +38,23 @@ eval(turkcescript(`
     }
 `))
 ```
+
+
+# Ayrıntılar
+
+Şu an için desteklenen anahtar kelimeler şu şekilde:
+
+```
+if yerine eğer
+else yerine değilse
+for yerine tekrarla
+function yerine fonksiyon
+return yerine döndür
+
+Dizilerdeki metodlar:
+
+map yerine dönüştür
+filter yerine filtrele
+reduce yerine indirge
+forEach yerine herbiriIcin (Not: Şu an için bir bugdan ötürü İ değil I, ç değil ç)
+```
