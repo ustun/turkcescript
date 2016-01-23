@@ -164,7 +164,7 @@
 	                        { id: 'github' },
 	                        _react2.default.createElement(
 	                            'a',
-	                            { href: 'github.com/ustun/turkcescript' },
+	                            { href: 'https://github.com/ustun/turkcescript' },
 	                            'Github deposu'
 	                        )
 	                    )
