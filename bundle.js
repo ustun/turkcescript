@@ -115,19 +115,35 @@
 	var Main = _react2.default.createClass({
 	    displayName: 'Main',
 	    getInitialState: function getInitialState() {
-	        return { transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [] };
+	        return { transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: true };
 	    },
 	    onChange: function onChange(newValue) {
 
 	        this.setState({
 	            value: newValue,
 	            transformed: transform(newValue) });
+
+	        if (this.state.autorun) {
+	            this.run();
+	        }
+	    },
+	    componentDidMount: function componentDidMount() {
+
+	        this.state.autorun && this.run();
 	    },
 	    run: function run() {
 	        window.LOG = [];
 	        this.setState({ log: [] });
 	        eval(this.state.transformed);
 	        this.setState({ log: window.LOG });
+	    },
+	    toggleJS: function toggleJS() {
+
+	        this.setState({ showJS: !this.state.showJS });
+	    },
+	    toggleAutorun: function toggleAutorun() {
+
+	        this.setState({ autorun: !this.state.autorun });
 	    },
 	    render: function render() {
 	        return _react2.default.createElement(
@@ -141,6 +157,23 @@
 	                    null,
 	                    'TürkçeScript'
 	                ),
+	                _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'JavaScript dönüşümünü göster',
+	                    _react2.default.createElement('input', { type: 'checkbox', checked: this.state.showJS, onClick: this.toggleJS })
+	                ),
+	                _react2.default.createElement(
+	                    'label',
+	                    null,
+	                    'Otomatik çalıştır',
+	                    _react2.default.createElement('input', { type: 'checkbox', checked: this.state.autorun, onClick: this.toggleAutorun })
+	                ),
+	                _react2.default.createElement(
+	                    'button',
+	                    { onClick: this.run, className: 'calistir' },
+	                    'Çalıştır'
+	                ),
 	                _react2.default.createElement(_reactAce2.default, {
 	                    mode: 'javascript',
 	                    theme: 'github',
@@ -151,7 +184,7 @@
 	                    showGutter: false
 	                })
 	            ),
-	            _react2.default.createElement(
+	            this.state.showJS && _react2.default.createElement(
 	                'div',
 	                { id: 'transformed' },
 	                _react2.default.createElement(
@@ -168,11 +201,6 @@
 	                    'h1',
 	                    null,
 	                    'Çıktı'
-	                ),
-	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: this.run, className: 'run' },
-	                    'Çalıştır'
 	                ),
 	                _react2.default.createElement(
 	                    'pre',
@@ -40238,7 +40266,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  font-family: sans-serif;\n  font-size: 15px;\n}\nh1 {\n  color: tomato;\n}\npre code {\n  font-family: sans-serif;\n}\n.container {\n  display: flex;\n}\n#aceeditor {\n  background: tomato;\n  flex-grow: 1;\n}\n#transformed {\n  background: red;\n  flex-grow: 1;\n  padding: 20px;\n}\n#output {\n  background: yellow;\n  flex-grow: 1;\n  padding: 20px;\n}\nbutton.calistir {\n  width: 100px;\n  height: 100px;\n}\n", ""]);
+	exports.push([module.id, "body {\n  font-family: sans-serif;\n  font-size: 15px;\n}\nh1 {\n  color: tomato;\n}\npre code {\n  font-family: sans-serif;\n}\n.container {\n  display: flex;\n}\n#aceeditor {\n  background: tomato;\n  flex-grow: 1;\n}\n#transformed {\n  flex-grow: 1;\n  padding: 20px;\n}\n#output {\n  background: tomato;\n  flex-grow: 1;\n  padding: 20px;\n}\n#output div,\n#output h1 {\n  color: white;\n}\nbutton.calistir {\n  width: 100px;\n  height: 40px;\n  background: tomato;\n  color: white;\n  border: none;\n  font-size: 18px;\n  margin-left: 10px;\n}\n", ""]);
 
 	// exports
 

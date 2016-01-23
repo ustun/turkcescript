@@ -63,7 +63,7 @@ eğer (x === 3) {
 `
 var Main = React.createClass({
     getInitialState() {
-        return {transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: []};
+        return {transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: true};
     },
 
     onChange(newValue) {
@@ -71,7 +71,17 @@ var Main = React.createClass({
         this.setState({
             value: newValue,
             transformed: transform(newValue)});
+
+        if (this.state.autorun) {
+            this.run();
+        }
+
     },
+
+componentDidMount() {
+
+    this.state.autorun && this.run();
+},
 
     run() {
         window.LOG = [];
@@ -80,10 +90,25 @@ var Main = React.createClass({
         this.setState({log: window.LOG});
     },
 
+    toggleJS() {
+
+        this.setState({showJS: !this.state.showJS});
+
+    },
+
+    toggleAutorun() {
+
+        this.setState({autorun: !this.state.autorun});
+
+    },
+
     render() {
         return <div className="container" >
             <div id='editor'>
             <h1>TürkçeScript</h1>
+            <label>JavaScript dönüşümünü göster<input type="checkbox" checked={this.state.showJS} onClick={this.toggleJS}/></label>
+            <label>Otomatik çalıştır<input type="checkbox" checked={this.state.autorun} onClick={this.toggleAutorun}/></label>
+            <button onClick={this.run} className='calistir'>Çalıştır</button>
             <AceEditor
              mode="javascript"
              theme="github"
@@ -94,14 +119,14 @@ var Main = React.createClass({
              showGutter={false}
              />
             </div>
-            <div id='transformed'>
+            {this.state.showJS &&<div id='transformed'>
             <h1>JavaScript Dönüşümü</h1>
             <Output content={this.state.transformed}/>
-            </div>
+            </div>}
 
             <div id='output'>
             <h1>Çıktı</h1>
-            <button onClick={this.run} className='run'>Çalıştır</button>
+
             <pre><code>
             {/*JSON.stringify(this.state.log) */}
             {this.state.log.map(function (log, i) {
