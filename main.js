@@ -107,7 +107,8 @@ var Main = React.createClass({
     render() {
         return <div className="container" >
             <div id='editor'>
-            <h1>TürkçeScript</h1>
+            <h1>TürkçeScript<div id='github'><a href='github.com/ustun/turkcescript'>Github deposu</a></div></h1>
+
             <label>JavaScript dönüşümünü göster<input type="checkbox" checked={this.state.showJS} onClick={this.toggleJS}/></label>
  {/*           <label>Otomatik çalıştır<input type="checkbox" checked={this.state.autorun} onClick={this.toggleAutorun}/></label>*/}
             <button onClick={this.run} className='calistir'>Çalıştır</button>
@@ -138,7 +139,9 @@ var Main = React.createClass({
             <div>
 
         </div>
+
             </div>
+
              </div>;
 
              }
