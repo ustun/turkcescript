@@ -95,9 +95,21 @@ değişken isim2 = 'MEHMET';
 yazdır(isim2, isim2.küçükHarfeDönüştür());
 
 `
+
+window.ERRORS = [];
+
+window.onerror = function (e) {
+    debugger
+    window.ERRORS.push(e);
+};
+
+var convertErrorToTurkish = function (x) {
+    return x.replace("SyntaxError", "Sözdizimi hatası").replace("Unexpected end of input", "Beklenmeyen giriş sonucu. Kapatma parantezini mi unuttunuz?").replace("Unexpected identifier", "Beklenmeyen ifade");
+};
+
 var Main = React.createClass({
     getInitialState() {
-        return {transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: true};
+        return {transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: true, hatalar: []};
     },
 
     onChange(newValue) {
@@ -107,6 +119,7 @@ var Main = React.createClass({
             transformed: transform(newValue)}, function () {
 
                 if (this.state.autorun) {
+                    window.ERRORS = [];
                     window.setTimeout(function () {
                         this.run();
                     }.bind(this), 10);
@@ -124,8 +137,14 @@ var Main = React.createClass({
     run() {
         window.LOG = [];
         this.setState({log: []})
-        eval(this.state.transformed);
-        this.setState({log: window.LOG});
+        try {
+            eval(this.state.transformed);
+            this.setState({log: window.LOG, hatalar: []});
+
+        } catch (e) {
+debugger
+            this.setState({hatalar: [convertErrorToTurkish(String(e))]});
+        }
     },
 
     toggleJS() {
@@ -173,17 +192,26 @@ var Main = React.createClass({
             return <div key={i}>{`Çıktı ${i}: ${log}`}</div>;
         })}
         </code></pre>
-            <div>
 
-        </div>
+        {this.state.hatalar.length > 0 && <div id='hatalar'><h1>Hatalar</h1>
 
-            </div>
+            <pre><code>
+            {/*JSON.stringify(this.state.log) */}
+        {this.state.hatalar.map(function (log, i) {
+            return <div key={i}>{`Hata ${i}: ${log}`}</div>;
+        })}
+        </code></pre></div>}
+        <div>
 
-             </div>;
+    </div>
 
-             }
+    </div>
 
-            });
+    </div>;
 
-    // Render editor
-    render(<Main/>, document.getElementById('app'));
+}
+
+                            });
+
+// Render editor
+render(<Main/>, document.getElementById('app'));

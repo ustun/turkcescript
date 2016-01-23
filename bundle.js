@@ -112,10 +112,22 @@
 	__webpack_require__(167);
 
 	var INITIAL_VALUE = '\n\ndeğişken x = 2;\n\nx = x + 1;\n\neğer (x === 3) {\n   yazdır("x üçtür");\n} değilse {\n   yazdır("x üç değildir");\n\n}\n\n\ntekrarla (değişken t = 0; t < 10; t++) {\n   yazdır(t + "nin karesi " + t * t + "dir");\n}\n\n\n[1, 2, 3].herbiriİçin(fonksiyon (x) {\n    yazdır(x * x * x);\n\n});\n\n\ndeğişken küpler = [1, 2, 3].dönüştür(fonksiyon (x) {\n    döndür x * x * x;\n\n});\n\nyazdır("küpler", küpler);\n\n\nfonksiyon tek(x) {\n    döndür x % 2 == 1;\n}\ndeğişken tekler = [1, 2, 3, 4, 5].filtrele(tek);\n\nyazdır("tekler", tekler);\n\n\ndeğişken isim = \'ahmet\';\nyazdır(isim, isim.büyükHarfeDönüştür());\n\ndeğişken isim2 = \'MEHMET\';\nyazdır(isim2, isim2.küçükHarfeDönüştür());\n\n';
+
+	window.ERRORS = [];
+
+	window.onerror = function (e) {
+	    debugger;
+	    window.ERRORS.push(e);
+	};
+
+	var convertErrorToTurkish = function convertErrorToTurkish(x) {
+	    return x.replace("SyntaxError", "Sözdizimi hatası").replace("Unexpected end of input", "Beklenmeyen giriş sonucu. Kapatma parantezini mi unuttunuz?").replace("Unexpected identifier", "Beklenmeyen ifade");
+	};
+
 	var Main = _react2.default.createClass({
 	    displayName: 'Main',
 	    getInitialState: function getInitialState() {
-	        return { transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: true };
+	        return { transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: true, hatalar: [] };
 	    },
 	    onChange: function onChange(newValue) {
 
@@ -124,6 +136,7 @@
 	            transformed: transform(newValue) }, function () {
 
 	            if (this.state.autorun) {
+	                window.ERRORS = [];
 	                window.setTimeout(function () {
 	                    this.run();
 	                }.bind(this), 10);
@@ -137,8 +150,13 @@
 	    run: function run() {
 	        window.LOG = [];
 	        this.setState({ log: [] });
-	        eval(this.state.transformed);
-	        this.setState({ log: window.LOG });
+	        try {
+	            eval(this.state.transformed);
+	            this.setState({ log: window.LOG, hatalar: [] });
+	        } catch (e) {
+	            debugger;
+	            this.setState({ hatalar: [convertErrorToTurkish(String(e))] });
+	        }
 	    },
 	    toggleJS: function toggleJS() {
 
@@ -228,6 +246,30 @@
 	                                'Çıktı ' + i + ': ' + log
 	                            );
 	                        })
+	                    )
+	                ),
+	                this.state.hatalar.length > 0 && _react2.default.createElement(
+	                    'div',
+	                    { id: 'hatalar' },
+	                    _react2.default.createElement(
+	                        'h1',
+	                        null,
+	                        'Hatalar'
+	                    ),
+	                    _react2.default.createElement(
+	                        'pre',
+	                        null,
+	                        _react2.default.createElement(
+	                            'code',
+	                            null,
+	                            this.state.hatalar.map(function (log, i) {
+	                                return _react2.default.createElement(
+	                                    'div',
+	                                    { key: i },
+	                                    'Hata ' + i + ': ' + log
+	                                );
+	                            })
+	                        )
 	                    )
 	                ),
 	                _react2.default.createElement('div', null)
@@ -40287,7 +40329,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  font-family: sans-serif;\n  font-size: 15px;\n}\nh1 {\n  color: tomato;\n}\npre code {\n  font-family: sans-serif;\n}\n.container {\n  display: flex;\n}\n#aceeditor {\n  background: tomato;\n  flex-grow: 1;\n}\n#transformed {\n  flex-grow: 1;\n  padding: 20px;\n}\n#output {\n  background: tomato;\n  flex-grow: 1;\n  padding: 20px;\n}\n#output div,\n#output h1 {\n  color: white;\n}\nbutton.calistir {\n  width: 100px;\n  height: 40px;\n  background: tomato;\n  color: white;\n  border: none;\n  font-size: 18px;\n  margin-left: 10px;\n}\n#github {\n  display: inline-block;\n  margin-left: 5px;\n}\n#github a {\n  display: inline-block;\n  font-size: 11px;\n  color: black;\n  text-decoration: underline;\n}\n.ace_content {\n  overflow-y: scroll;\n}\n#app {\n  height: 100vh;\n}\n.container {\n  height: 100vh;\n}\n", ""]);
+	exports.push([module.id, "body {\n  font-family: sans-serif;\n  font-size: 15px;\n}\nh1 {\n  color: tomato;\n}\npre code {\n  font-family: sans-serif;\n}\n.container {\n  display: flex;\n}\n#aceeditor {\n  background: tomato;\n  flex-grow: 1;\n}\n#transformed {\n  flex-grow: 1;\n  padding: 20px;\n}\n#output {\n  background: tomato;\n  flex-grow: 1;\n  padding: 20px;\n}\n#output div,\n#output h1 {\n  color: white;\n}\nbutton.calistir {\n  width: 100px;\n  height: 40px;\n  background: tomato;\n  color: white;\n  border: none;\n  font-size: 18px;\n  margin-left: 10px;\n}\n#github {\n  display: inline-block;\n  margin-left: 5px;\n}\n#github a {\n  display: inline-block;\n  font-size: 11px;\n  color: black;\n  text-decoration: underline;\n}\n.ace_content {\n  overflow-y: scroll;\n}\n#app {\n  height: 100vh;\n}\n.container {\n  height: 100vh;\n}\n#hatalar {\n  background: crimson;\n}\n", ""]);
 
 	// exports
 
