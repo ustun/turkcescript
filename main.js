@@ -146,6 +146,7 @@ var Main = React.createClass({
              theme="github"
              onChange={this.onChange}
              name="ace-editor"
+             height={'800'}
              editorProps={{$blockScrolling: true}}
              value={this.state.value}
              showGutter={false}
