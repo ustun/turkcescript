@@ -115,17 +115,18 @@
 	var Main = _react2.default.createClass({
 	    displayName: 'Main',
 	    getInitialState: function getInitialState() {
-	        return { transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: true };
+	        return { transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: false };
 	    },
 	    onChange: function onChange(newValue) {
 
 	        this.setState({
 	            value: newValue,
-	            transformed: transform(newValue) });
+	            transformed: transform(newValue) }, function () {
 
-	        if (this.state.autorun) {
-	            this.run();
-	        }
+	            if (this.state.autorun) {
+	                this.run();
+	            }
+	        }.bind(this));
 	    },
 	    componentDidMount: function componentDidMount() {
 
@@ -162,12 +163,6 @@
 	                    null,
 	                    'JavaScript dönüşümünü göster',
 	                    _react2.default.createElement('input', { type: 'checkbox', checked: this.state.showJS, onClick: this.toggleJS })
-	                ),
-	                _react2.default.createElement(
-	                    'label',
-	                    null,
-	                    'Otomatik çalıştır',
-	                    _react2.default.createElement('input', { type: 'checkbox', checked: this.state.autorun, onClick: this.toggleAutorun })
 	                ),
 	                _react2.default.createElement(
 	                    'button',

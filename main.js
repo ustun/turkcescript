@@ -63,25 +63,27 @@ eğer (x === 3) {
 `
 var Main = React.createClass({
     getInitialState() {
-        return {transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: true};
+        return {transformed: transform(INITIAL_VALUE), value: INITIAL_VALUE, log: [], showJS: false, autorun: false};
     },
 
     onChange(newValue) {
 
         this.setState({
             value: newValue,
-            transformed: transform(newValue)});
+            transformed: transform(newValue)}, function () {
 
-        if (this.state.autorun) {
-            this.run();
-        }
+                if (this.state.autorun) {
+                    this.run();
+                }
+
+            }.bind(this));
 
     },
 
-componentDidMount() {
+    componentDidMount() {
 
-    this.state.autorun && this.run();
-},
+        this.state.autorun && this.run();
+    },
 
     run() {
         window.LOG = [];
@@ -107,7 +109,7 @@ componentDidMount() {
             <div id='editor'>
             <h1>TürkçeScript</h1>
             <label>JavaScript dönüşümünü göster<input type="checkbox" checked={this.state.showJS} onClick={this.toggleJS}/></label>
-            <label>Otomatik çalıştır<input type="checkbox" checked={this.state.autorun} onClick={this.toggleAutorun}/></label>
+ {/*           <label>Otomatik çalıştır<input type="checkbox" checked={this.state.autorun} onClick={this.toggleAutorun}/></label>*/}
             <button onClick={this.run} className='calistir'>Çalıştır</button>
             <AceEditor
              mode="javascript"
@@ -120,28 +122,28 @@ componentDidMount() {
              />
             </div>
             {this.state.showJS &&<div id='transformed'>
-            <h1>JavaScript Dönüşümü</h1>
-            <Output content={this.state.transformed}/>
-            </div>}
+             <h1>JavaScript Dönüşümü</h1>
+             <Output content={this.state.transformed}/>
+             </div>}
 
             <div id='output'>
             <h1>Çıktı</h1>
 
             <pre><code>
             {/*JSON.stringify(this.state.log) */}
-            {this.state.log.map(function (log, i) {
-                return <div key={i}>{`Çıktı ${i}: ${log}`}</div>;
-            })}
-             </code></pre>
+        {this.state.log.map(function (log, i) {
+            return <div key={i}>{`Çıktı ${i}: ${log}`}</div>;
+        })}
+        </code></pre>
             <div>
 
         </div>
             </div>
-            </div>;
+             </div>;
 
-    }
+             }
 
-});
+            });
 
-// Render editor
-render(<Main/>, document.getElementById('app'));
+    // Render editor
+    render(<Main/>, document.getElementById('app'));
