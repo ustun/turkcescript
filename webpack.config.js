@@ -3,9 +3,13 @@
 module.exports = {
 
     entry: './main.js',
-    output: {path: 'bundle.js'},
+    output: {filename: 'bundle.js'},
     module: {
         loaders: [
+            {
+                test: /\.less$/,
+                loader: "style!css!less"
+            },
             {
                 test: /\.jsx?$/,
                 exclude: /(node_modules|bower_components)/,
