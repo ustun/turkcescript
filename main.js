@@ -99,12 +99,11 @@ yazdır(isim2, isim2.küçükHarfeDönüştür());
 window.ERRORS = [];
 
 window.onerror = function (e) {
-    debugger
-    window.ERRORS.push(e);
+      window.ERRORS.push(e);
 };
 
 var convertErrorToTurkish = function (x) {
-    return x.replace("SyntaxError", "Sözdizimi hatası").replace("Unexpected end of input", "Beklenmeyen giriş sonucu. Kapatma parantezini mi unuttunuz?").replace("Unexpected identifier", "Beklenmeyen ifade");
+    return x.replace("SyntaxError", "Sözdizimi hatası").replace("Unexpected end of input", "Beklenmeyen giriş sonucu. Kapatma parantezini mi unuttunuz?").replace("Unexpected identifier", "Beklenmeyen ifade").replace('Unexpected', 'Beklenmeyen').replace('token', 'parça');
 };
 
 var Main = React.createClass({
@@ -142,7 +141,7 @@ var Main = React.createClass({
             this.setState({log: window.LOG, hatalar: []});
 
         } catch (e) {
-debugger
+
             this.setState({hatalar: [convertErrorToTurkish(String(e))]});
         }
     },

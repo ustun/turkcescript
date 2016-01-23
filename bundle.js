@@ -116,12 +116,11 @@
 	window.ERRORS = [];
 
 	window.onerror = function (e) {
-	    debugger;
 	    window.ERRORS.push(e);
 	};
 
 	var convertErrorToTurkish = function convertErrorToTurkish(x) {
-	    return x.replace("SyntaxError", "Sözdizimi hatası").replace("Unexpected end of input", "Beklenmeyen giriş sonucu. Kapatma parantezini mi unuttunuz?").replace("Unexpected identifier", "Beklenmeyen ifade");
+	    return x.replace("SyntaxError", "Sözdizimi hatası").replace("Unexpected end of input", "Beklenmeyen giriş sonucu. Kapatma parantezini mi unuttunuz?").replace("Unexpected identifier", "Beklenmeyen ifade").replace('Unexpected', 'Beklenmeyen').replace('token', 'parça');
 	};
 
 	var Main = _react2.default.createClass({
@@ -154,7 +153,7 @@
 	            eval(this.state.transformed);
 	            this.setState({ log: window.LOG, hatalar: [] });
 	        } catch (e) {
-	            debugger;
+
 	            this.setState({ hatalar: [convertErrorToTurkish(String(e))] });
 	        }
 	    },
