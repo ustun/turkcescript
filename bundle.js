@@ -111,7 +111,7 @@
 
 	__webpack_require__(167);
 
-	var INITIAL_VALUE = '\n\ndeğişken x = 2;\n\nx = x + 1;\n\neğer (x === 3) {\n   yazdır("x üçtür");\n} değilse {\n   yazdır("x üç değildir");\n\n}\n\n\ntekrarla (değişken t = 0; t < 10; t++) {\n   yazdır(t + "nin karesi " + t * t + "dir");\n}\n\n\n[1, 2, 3].herbiriIcin(fonksiyon (x) {\n    yazdır(x * x * x);\n\n});\n\n\ndeğişken küpler = [1, 2, 3].dönüştür(fonksiyon (x) {\n    döndür x * x * x;\n\n});\n\nyazdır("küpler", küpler);\n\n\nfonksiyon tek(x) {\n    return x % 2 == 1;\n}\ndeğişken tekler = [1, 2, 3, 4, 5].filtrele(tek);\n\nyazdır("tekler", tekler);\n\n';
+	var INITIAL_VALUE = '\n\ndeğişken x = 2;\n\nx = x + 1;\n\neğer (x === 3) {\n   yazdır("x üçtür");\n} değilse {\n   yazdır("x üç değildir");\n\n}\n\n\ntekrarla (değişken t = 0; t < 10; t++) {\n   yazdır(t + "nin karesi " + t * t + "dir");\n}\n\n\n[1, 2, 3].herbiriIcin(fonksiyon (x) {\n    yazdır(x * x * x);\n\n});\n\n\ndeğişken küpler = [1, 2, 3].dönüştür(fonksiyon (x) {\n    döndür x * x * x;\n\n});\n\nyazdır("küpler", küpler);\n\n\nfonksiyon tek(x) {\n    döndür x % 2 == 1;\n}\ndeğişken tekler = [1, 2, 3, 4, 5].filtrele(tek);\n\nyazdır("tekler", tekler);\n\n';
 	var Main = _react2.default.createClass({
 	    displayName: 'Main',
 	    getInitialState: function getInitialState() {

@@ -81,7 +81,7 @@ yazdır("küpler", küpler);
 
 
 fonksiyon tek(x) {
-    return x % 2 == 1;
+    döndür x % 2 == 1;
 }
 değişken tekler = [1, 2, 3, 4, 5].filtrele(tek);
 
