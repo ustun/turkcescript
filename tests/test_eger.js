@@ -1,10 +1,7 @@
 var test = require('tape');
 
 
-var transform = function (x) {
-    // TODO: call the babel transformer
-    return x;
-}
+var transform = require('../index');
 
 test('sadece eger kelimesi', function (t) {
     var input = `
@@ -14,7 +11,8 @@ eğer (x === 4) {
     var output = `if (x === 4) {
    console.log("x dorttur");
 }`
-    t.assert(transform(input) === output);
+console.log("foo", transform(input))
+    t.equal(transform(input).trim(), output.trim());
     t.end();
 });
 
@@ -31,7 +29,7 @@ eğer (x === 4) {
 } else {
    console.log("x dort degildir");
 }`
-    t.assert(transform(input) === output);
+    t.assert(transform(input).trim() === output.trim());
     t.end();
 });
 
@@ -52,6 +50,6 @@ if (x === 4) {
 } else {
    console.log("x dört ya da üç değildir");
 }`
-    t.assert(transform(input) === output);
+    t.assert(transform(input).trim() === output.trim());
     t.end();
 });

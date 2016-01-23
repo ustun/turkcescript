@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "tape tests/*.js"
+    "test": "tape  -r babel-register tests/*.js"
   },
   "author": "Ustun Ozgur <ustun@ustunozgur.com> (https://github.com/ustun)",
   "license": "ISC",
