@@ -56,5 +56,5 @@ Dizilerdeki metodlar:
 map yerine dönüştür
 filter yerine filtrele
 reduce yerine indirge
-forEach yerine herbiriIcin (Not: Şu an için bir bugdan ötürü İ değil I, ç değil ç)
+forEach yerine herbiriİçin
 ```

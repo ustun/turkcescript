@@ -66,7 +66,7 @@ tekrarla (değişken t = 0; t < 10; t++) {
 }
 
 
-[1, 2, 3].herbiriIcin(fonksiyon (x) {
+[1, 2, 3].herbiriİçin(fonksiyon (x) {
     yazdır(x * x * x);
 
 });

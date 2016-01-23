@@ -24,7 +24,7 @@ const transform = function (text) {
 Array.prototype.donustur = Array.prototype.map;
 Array.prototype.filtrele = Array.prototype.filter;
 Array.prototype.indirge = Array.prototype.reduce;
-Array.prototype.herbiriIcin = Array.prototype.forEach;
+Array.prototype.herbiriİçin = Array.prototype.forEach;
 
 
 
