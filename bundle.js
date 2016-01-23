@@ -111,7 +111,7 @@
 
 	__webpack_require__(167);
 
-	var INITIAL_VALUE = '\n\ndeğişken x = 2;\n\nx = x + 1;\n\neğer (x === 3) {\n   yazdir("x üçtür");\n} değilse {\n   yazdir("x üç değildir");\n\n}\n\n';
+	var INITIAL_VALUE = '\n\ndeğişken x = 2;\n\nx = x + 1;\n\neğer (x === 3) {\n   yazdir("x üçtür");\n} değilse {\n   yazdir("x üç değildir");\n\n}\n\n\ntekrarla (değişken t = 0; t < 10; t++) {\n   yazdir(t + "nin karesi " + t * t + "dir");\n}\n';
 	var Main = _react2.default.createClass({
 	    displayName: 'Main',
 	    getInitialState: function getInitialState() {
@@ -40230,7 +40230,7 @@
 
 	'use strict';
 
-	var modifications = [{ source: /e\u011Fer/g, target: 'if' }, { source: /de\u011Filse/g, target: 'else' }, { source: /\bde\u011Fi\u015Fken\b/g, target: 'var' }];
+	var modifications = [{ source: /e\u011Fer/g, target: 'if' }, { source: /de\u011Filse/g, target: 'else' }, { source: /\bde\u011Fi\u015Fken\b/g, target: 'var' }, { source: /\btekrarla\b/g, target: 'for' }];
 
 	var transform = function transform(text) {
 

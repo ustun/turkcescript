@@ -60,6 +60,10 @@ eğer (x === 3) {
 
 }
 
+
+tekrarla (değişken t = 0; t < 10; t++) {
+   yazdir(t + "nin karesi " + t * t + "dir");
+}
 `
 var Main = React.createClass({
     getInitialState() {
