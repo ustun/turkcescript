@@ -24,7 +24,7 @@ console.log = function (...args) {
     originalConsoleLog.apply(console, args);
 };
 
-var yazdir = console.log.bind(console);
+var yazdır = console.log.bind(console);
 var uyari = window.alert;
 
 var Output = React.createClass({
@@ -54,30 +54,30 @@ değişken x = 2;
 x = x + 1;
 
 eğer (x === 3) {
-   yazdir("x üçtür");
+   yazdır("x üçtür");
 } değilse {
-   yazdir("x üç değildir");
+   yazdır("x üç değildir");
 
 }
 
 
 tekrarla (değişken t = 0; t < 10; t++) {
-   yazdir(t + "nin karesi " + t * t + "dir");
+   yazdır(t + "nin karesi " + t * t + "dir");
 }
 
 
 [1, 2, 3].herbiriIcin(fonksiyon (x) {
-    yazdir(x * x * x);
+    yazdır(x * x * x);
 
 });
 
 
-değişken kupler = [1, 2, 3].dönüştür(fonksiyon (x) {
+değişken küpler = [1, 2, 3].dönüştür(fonksiyon (x) {
     döndür x * x * x;
 
 });
 
-yazdir("küpler", kupler);
+yazdır("küpler", küpler);
 
 
 fonksiyon tek(x) {
@@ -85,7 +85,7 @@ fonksiyon tek(x) {
 }
 değişken tekler = [1, 2, 3, 4, 5].filtrele(tek);
 
-yazdir("tekler", tekler);
+yazdır("tekler", tekler);
 
 `
 var Main = React.createClass({
