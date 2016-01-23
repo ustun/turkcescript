@@ -40283,7 +40283,7 @@
 
 
 	// module
-	exports.push([module.id, "body {\n  font-family: sans-serif;\n  font-size: 15px;\n}\nh1 {\n  color: tomato;\n}\npre code {\n  font-family: sans-serif;\n}\n.container {\n  display: flex;\n}\n#aceeditor {\n  background: tomato;\n  flex-grow: 1;\n}\n#transformed {\n  flex-grow: 1;\n  padding: 20px;\n}\n#output {\n  background: tomato;\n  flex-grow: 1;\n  padding: 20px;\n}\n#output div,\n#output h1 {\n  color: white;\n}\nbutton.calistir {\n  width: 100px;\n  height: 40px;\n  background: tomato;\n  color: white;\n  border: none;\n  font-size: 18px;\n  margin-left: 10px;\n}\n#github {\n  display: inline-block;\n  margin-left: 5px;\n}\n#github a {\n  display: inline-block;\n  font-size: 11px;\n  color: rebeccapurple;\n  text-decoration: underline;\n}\n", ""]);
+	exports.push([module.id, "body {\n  font-family: sans-serif;\n  font-size: 15px;\n}\nh1 {\n  color: tomato;\n}\npre code {\n  font-family: sans-serif;\n}\n.container {\n  display: flex;\n}\n#aceeditor {\n  background: tomato;\n  flex-grow: 1;\n}\n#transformed {\n  flex-grow: 1;\n  padding: 20px;\n}\n#output {\n  background: tomato;\n  flex-grow: 1;\n  padding: 20px;\n}\n#output div,\n#output h1 {\n  color: white;\n}\nbutton.calistir {\n  width: 100px;\n  height: 40px;\n  background: tomato;\n  color: white;\n  border: none;\n  font-size: 18px;\n  margin-left: 10px;\n}\n#github {\n  display: inline-block;\n  margin-left: 5px;\n}\n#github a {\n  display: inline-block;\n  font-size: 11px;\n  color: black;\n  text-decoration: underline;\n}\n.ace_content {\n  overflow-y: scroll;\n}\n#app {\n  height: 100vh;\n}\n.container {\n  height: 100vh;\n}\n", ""]);
 
 	// exports
 
