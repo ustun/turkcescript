@@ -27,6 +27,8 @@ npm install turkcescript
 
 ```js
 var turkcescript = require('turkcescript');
+```
+
 ```js
 eval(turkcescript(`
     değişken x = 4;
@@ -36,7 +38,8 @@ eval(turkcescript(`
     } değilse {
         console.log("x 5'e eşit değil");
     }
-`))
+`
+))
 ```
 
 
