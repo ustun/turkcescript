@@ -1,7 +1,7 @@
 {
-  "name": "babel-turkish-plugin",
+  "name": "turkscript",
   "version": "1.0.0",
-  "description": "",
+  "description": "JavaScript'e Turkce keywordleri ekleyen preprocessor",
   "main": "index.js",
   "scripts": {
     "test": "tape  -r babel-register tests/*.js"
