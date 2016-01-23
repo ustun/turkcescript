@@ -87,6 +87,13 @@ değişken tekler = [1, 2, 3, 4, 5].filtrele(tek);
 
 yazdır("tekler", tekler);
 
+
+değişken isim = 'ahmet';
+yazdır(isim, isim.büyükHarfeDönüştür());
+
+değişken isim2 = 'MEHMET';
+yazdır(isim2, isim2.küçükHarfeDönüştür());
+
 `
 var Main = React.createClass({
     getInitialState() {

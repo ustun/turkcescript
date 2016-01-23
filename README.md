@@ -57,4 +57,10 @@ map yerine dönüştür
 filter yerine filtrele
 reduce yerine indirge
 forEach yerine herbiriİçin
+
+String (yazı) metodları
+
+toUpperCase yerine büyükHarfeDönüştür
+toLowerCase yerine küçükHarfeDönüştür
+
 ```

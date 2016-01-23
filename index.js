@@ -27,6 +27,9 @@ Array.prototype.indirge = Array.prototype.reduce;
 Array.prototype.herbiriİçin = Array.prototype.forEach;
 
 
+String.prototype.büyükHarfeDönüştür = String.prototype.toUpperCase;
+String.prototype.küçükHarfeDönüştür = String.prototype.toLowerCase;
+
 
 
 module.exports = transform;
