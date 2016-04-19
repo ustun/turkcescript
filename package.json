@@ -1,6 +1,6 @@
 {
   "name": "turkcescript",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "JavaScript'e Turkce keywordleri ekleyen preprocessor",
   "main": "index.js",
   "scripts": {
@@ -19,6 +19,7 @@
     "react-dom": "^0.14.6"
   },
   "devDependencies": {
+    "babel-cli": "^6.7.5",
     "css-loader": "^0.23.1",
     "less-loader": "^2.2.2",
     "style-loader": "^0.13.0",
