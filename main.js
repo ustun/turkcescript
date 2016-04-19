@@ -24,7 +24,6 @@ console.log = function (...args) {
     originalConsoleLog.apply(console, args);
 };
 
-var yazdır = console.log.bind(console);
 var uyari = window.alert;
 
 var Output = React.createClass({
@@ -59,7 +58,6 @@ eğer (x === 3) {
    yazdır("x üç değildir");
 
 }
-
 
 tekrarla (değişken t = 0; t < 10; t++) {
    yazdır(t + "nin karesi " + t * t + "dir");
