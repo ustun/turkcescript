@@ -1,9 +1,9 @@
-
+var webpack = require("webpack");
 
 module.exports = {
 
     entry: './main.js',
-    output: {filename: 'bundle.js'},
+    output: { filename: 'bundle.js' },
     module: {
         loaders: [
             {
@@ -19,6 +19,9 @@ module.exports = {
                 }
             }
         ]
-    }
+    },
+    plugins: [
+        new webpack.optimize.UglifyJsPlugin({ minimize: true })
+    ]
 
 };

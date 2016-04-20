@@ -7,9 +7,9 @@ Bu depo, Türkçe anahtar kelimeler kullanarak JavaScript uygulamaları yazmanı
 değişken x = 4;
 x = x + 1;
 eğer (x === 5) {
-    console.log("x 5'e eşit");
+    yazdır("x 5'e eşit");
 } değilse {
-    console.log("x 5'e eşit değil");
+    yazdır("x 5'e eşit değil");
 }
 ```
 
@@ -49,9 +49,8 @@ eval(turkcescript(`
 
 ```
 Değişkenler:
-var yerine değişken
+let yerine değişken
 const yerine sabit
-let yerine globalDeğişken
 
 Genel İşlemler:
 console.log yerine yazdır
