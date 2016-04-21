@@ -7,9 +7,9 @@ Bu depo, Türkçe anahtar kelimeler kullanarak JavaScript uygulamaları yazmanı
 değişken x = 4;
 x = x + 1;
 eğer (x === 5) {
-    console.log("x 5'e eşit");
+    yazdır("x 5'e eşit");
 } değilse {
-    console.log("x 5'e eşit değil");
+    yazdır("x 5'e eşit değil");
 }
 ```
 
@@ -34,9 +34,9 @@ eval(turkcescript(`
     değişken x = 4;
     x = x + 1;
     eğer (x === 5) {
-        console.log("x 5'e eşit");
+        yazdır("x 5'e eşit");
     } değilse {
-        console.log("x 5'e eşit değil");
+		yazdır("x 5'e eşit değil");
     }
 `
 ))
@@ -48,6 +48,13 @@ eval(turkcescript(`
 Şu an için desteklenen anahtar kelimeler şu şekilde:
 
 ```
+Değişkenler:
+let yerine değişken
+const yerine sabit
+
+Genel İşlemler:
+console.log yerine yazdır
+
 if yerine eğer
 else yerine değilse
 for yerine tekrarla
